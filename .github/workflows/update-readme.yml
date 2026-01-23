@@ -2,8 +2,8 @@ name: Update README
 
 on:
   schedule:
-    - cron: "0 * * * *"   # Runs every hour
-  workflow_dispatch:      # Manual trigger button
+    - cron: "0 * * * *"   # runs every hour
+  workflow_dispatch:
 
 jobs:
   update-readme:
@@ -15,16 +15,13 @@ jobs:
 
       - name: Update README content
         run: |
-          echo "# Auto Updated README" > README.md
-          echo "" >> README.md
-          echo "Last updated: $(date)" >> README.md
-          echo "" >> README.md
-          echo "This update was done using GitHub Actions 🚀" >> README.md
+          DATE=$(date)
+          perl -0777 -i -pe 's/<!-- AUTO-UPDATE-START -->.*?<!-- AUTO-UPDATE-END -->/<!-- AUTO-UPDATE-START -->\nLast updated: '"$DATE"'\nThis update was done using GitHub Actions 🚀\n<!-- AUTO-UPDATE-END -->/s' README.md
 
       - name: Commit and push changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add README.md
-          git commit -m "Automated README update" || echo "No changes to commit"
+          git diff --cached --quiet || git commit -m "Automated README update"
           git push
