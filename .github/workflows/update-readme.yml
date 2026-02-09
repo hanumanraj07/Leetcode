@@ -20,8 +20,8 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "hanumanraj07"
+          git config user.email "hanuman.rajpurohit.cg@gmail.com"
           git add README.md
           git diff --cached --quiet || git commit -m "Automated README update"
           git push
