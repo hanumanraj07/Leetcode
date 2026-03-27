@@ -2,7 +2,7 @@ name: README Update + Snake Animation
 
 on:
   schedule:
-    - cron: "0 * * * *"   # Every 2 hours (README update)
+    - cron: "* 0/2 * * *"   # Every 2 hours (README update)
     - cron: "0 0 * * *"    # Daily at midnight (Snake)
   workflow_dispatch:
 
