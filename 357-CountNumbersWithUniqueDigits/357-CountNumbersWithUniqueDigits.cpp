@@ -1,0 +1,20 @@
+// Last updated: 4/6/2026, 5:56:29 PM
+class Solution {
+public:
+    int countNumbersWithUniqueDigits(int n) {
+
+        if(n == 0) return 1;
+
+        int result = 10;
+        int unique = 9;
+        int available = 9;
+
+        for(int i = 2; i <= n; i++){
+            unique = unique * available;
+            result += unique;
+            available--;
+        }
+
+        return result;
+    }
+};
