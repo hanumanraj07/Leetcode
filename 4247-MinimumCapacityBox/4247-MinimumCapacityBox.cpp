@@ -1,0 +1,18 @@
+// Last updated: 4/6/2026, 5:55:20 PM
+class Solution {
+public:
+    int minimumIndex(vector<int>& capacity, int itemSize) {
+
+        int minCap = INT_MAX;
+        int index = -1;
+
+        for(int i = 0; i < capacity.size(); i++){
+            if(capacity[i] >= itemSize && capacity[i] < minCap){
+                minCap = capacity[i];
+                index = i;
+            }
+        }
+
+        return index;
+    }
+};
