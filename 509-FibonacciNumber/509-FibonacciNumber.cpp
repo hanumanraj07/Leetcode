@@ -1,16 +1,17 @@
-// Last updated: 5/6/2026, 9:44:28 AM
+// Last updated: 5/6/2026, 9:56:06 AM
 1class Solution {
 2public:
-3    int fib(int n) {
-4        if(n <= 1) return n;
+3    vector<int> twoSum(vector<int>& nums, int target) {
+4        unordered_map<int , int> mp;
 5
-6        int a = 0 , b = 1;
-7
-8        for(int i = 2; i <= n; i++){
-9            int c = a + b;
-10            a = b;
-11            b = c;
-12        }
-13        return b;
-14    }
-15};
+6        for(int i = 0; i < nums.size(); i++){
+7            int complement = target - nums[i];
+8
+9            if(mp.find(complement) != mp.end()){
+10                return {mp[complement], i};
+11            }
+12        mp[nums[i]]= i;
+13        }
+14    return {};
+15    }
+16};
