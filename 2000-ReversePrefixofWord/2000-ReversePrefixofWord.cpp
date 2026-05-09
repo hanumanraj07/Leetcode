@@ -1,18 +1,13 @@
-// Last updated: 5/9/2026, 1:39:58 PM
+// Last updated: 5/9/2026, 1:48:11 PM
 1class Solution {
 2public:
-3    int countAsterisks(string s) {
-4        int count = 0;
-5        bool insidePipe = false;
-6
-7        for(char ch:s){
-8            if(ch == '|'){
-9                insidePipe = !insidePipe ;
-10            }
-11            else if(ch == '*' && !insidePipe){
-12                count++;
-13            }
-14        }
-15        return count;
-16    }
-17};
+3    int titleToNumber(string columnTitle) {
+4        int result = 0;
+5
+6        for(char ch : columnTitle){
+7            result = result * 26 + (ch - 'A' + 1);
+8        }
+9
+10        return result;
+11    }
+12};
