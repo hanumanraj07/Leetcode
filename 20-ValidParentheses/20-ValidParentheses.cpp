@@ -1,30 +1,23 @@
-// Last updated: 4/30/2026, 9:59:12 AM
-1#include <iostream>
-2#include <stack>
-3using namespace std;
-4
-5class Solution {
-6public:
-7    bool isValid(string s) {
-8        stack<char> st;
-9
-10        for (char ch : s) { 
-11            if (ch == '(' || ch == '{' || ch == '[') {
-12                st.push(ch);
-13            } 
-14            else { 
-15                if (st.empty()) return false;
+// Last updated: 5/15/2026, 11:24:28 AM
+1class Solution {
+2public:
+3    bool isValid(string s) {
+4        stack<char> st;
+5
+6        for(char c: s){
+7            if(c == '(' || c=='{' || c=='['){
+8                st.push(c);
+9            }
+10            else {
+11                if(st.empty()) return false;
+12
+13                if(c == ')' && st.top() != '(') return false;
+14                if(c == '}' && st.top() != '{') return false;
+15                if(c == ']' && st.top() != '[') return false;
 16
-17                char top = st.top();
-18                st.pop();
-19 
-20                if ((ch == ')' && top != '(') ||
-21                    (ch == '}' && top != '{') ||
-22                    (ch == ']' && top != '[')) {
-23                    return false;
-24                }
-25            }
-26        }
-27        return st.empty();
-28    }
-29};
+17                st.pop();
+18            }
+19        }
+20        return st.empty();
+21    }
+22};
