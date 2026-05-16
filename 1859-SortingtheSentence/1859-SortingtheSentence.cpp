@@ -1,15 +1,19 @@
-// Last updated: 5/16/2026, 10:12:16 AM
+// Last updated: 5/16/2026, 10:21:19 AM
 1class Solution {
 2public:
-3    void rotate(vector<int>& nums, int k) {
-4        int n = nums.size();
+3    int maxScore(vector<int>& nums) {
+4        sort(nums.begin(), nums.end(), greater<int>());
 5
-6        k = k%n;
-7
-8        reverse(nums.begin(), nums.end());
-9
-10        reverse(nums.begin(),nums.begin() + k);
+6        long long sum = 0;
+7        int count = 0;
+8
+9        for(int num : nums){
+10            sum += num;
 11
-12        reverse(nums.begin() + k, nums.end());
-13    }
-14};
+12            if(sum > 0)
+13            count++;
+14        }
+15
+16        return count;
+17    }
+18};
