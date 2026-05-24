@@ -1,24 +1,23 @@
-// Last updated: 5/24/2026, 12:56:12 PM
+// Last updated: 5/24/2026, 1:09:00 PM
 1class Solution {
 2public:
-3    int singleNonDuplicate(vector<int>& nums) {
-4        int left = 0;
-5        int right = nums.size() - 1;
-6
-7        while (left < right){
-8            int mid = left + (right - left)/2;
+3    vector<int> productExceptSelf(vector<int>& nums) {
+4        int n = nums.size();
+5
+6        vector<int> ans(n , 1);
+7
+8        int prefix = 1;
 9
-10            if(mid % 2 == 1){
-11                mid--;
-12            }
-13
-14            if(nums[mid]==nums[mid + 1]){
-15                left = mid + 2;
-16            }
-17            else{
-18                right = mid;
-19            }
-20        }
-21        return nums[left];
-22    }
-23};
+10        for(int i=0; i<n; i++){
+11            ans[i] = prefix;
+12            prefix *= nums[i];
+13        }
+14        int suffix = 1;
+15
+16        for(int i = n - 1; i>= 0; i--){
+17            ans[i] *= suffix;
+18            suffix *= nums[i];
+19        }
+20        return ans;
+21    }
+22};
