@@ -1,21 +1,21 @@
-// Last updated: 5/24/2026, 1:27:48 PM
+// Last updated: 5/24/2026, 1:36:56 PM
 1class Solution {
 2public:
-3    int numOfSubarrays(vector<int>& arr, int k, int threshold) {
-4        int target = k * threshold;
-5        int sum = 0;
-6        int count= 0;
+3    vector<int> rearrangeArray(vector<int>& nums) {
+4        vector <int> ans(nums.size());
+5        int pos = 0;
+6        int neg  = 1;
 7
-8        for(int i =0; i < arr.size(); i++){
-9            sum += arr[i];
-10
-11            if(i >= k){
-12                sum -= arr[i - k];
-13            }
-14            if(i >= k -1 && sum >= target){
-15                count++;
+8        for(int num : nums){
+9            if(num > 0){
+10                ans[pos] = num;
+11                pos += 2;
+12            }
+13            else{
+14                ans[neg] = num;
+15                neg += 2;
 16            }
 17        }
-18        return count;
+18        return ans;
 19    }
 20};
