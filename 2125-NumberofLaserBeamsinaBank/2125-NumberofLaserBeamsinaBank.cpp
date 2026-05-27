@@ -1,10 +1,15 @@
-// Last updated: 5/27/2026, 2:30:00 PM
+// Last updated: 5/27/2026, 2:36:03 PM
 1class Solution {
 2public:
-3    string toLowerCase(string s) {
-4      for(char &c : s){
-5        c = tolower(c);
-6      }  
-7      return s;
-8    }
-9};
+3    void reverseString(vector<char>& s) {
+4        int left = 0;
+5        int right = s.size() - 1;
+6
+7        while(left < right){
+8            swap(s[left], s[right]);
+9
+10            left++;
+11            right--;
+12        }
+13    }
+14};
