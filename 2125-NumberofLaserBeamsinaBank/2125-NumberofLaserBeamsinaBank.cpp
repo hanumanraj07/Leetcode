@@ -1,17 +1,10 @@
-// Last updated: 5/27/2026, 2:56:51 PM
+// Last updated: 5/27/2026, 3:03:35 PM
 1class Solution {
 2public:
-3    int finalValueAfterOperations(vector<string>& operations) {
-4        int x = 0;
-5
-6        for(string op : operations){
-7            if(op[1] == '+'){
-8                x++;
-9            }
-10            else{
-11                x--;
-12            }
-13        }
-14            return x;
-15    }
-16};
+3    vector<int> runningSum(vector<int>& nums) {
+4        for(int i = 1; i < nums.size(); i++){
+5            nums[i] += nums[i-1];
+6        }
+7        return nums;
+8    }
+9};
