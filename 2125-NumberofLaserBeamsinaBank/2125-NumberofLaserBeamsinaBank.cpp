@@ -1,14 +1,18 @@
-// Last updated: 5/27/2026, 2:12:13 PM
+// Last updated: 5/27/2026, 2:22:45 PM
 1class Solution {
 2public:
-3    int minimumOperations(vector<int>& nums) {
-4       set<int> s;
+3    vector<vector<int>> generate(int numRows) {
+4        vector<vector <int>> triangle;
 5
-6       for(int num : nums) {
-7        if(num > 0){
-8            s.insert(num);
-9        }
-10       }
-11       return s.size();
-12    }
-13};
+6        for(int i = 0; i < numRows; i++){
+7            vector<int> row(i + 1 , 1);
+8
+9            for(int j = 1; j < i; j++){
+10                row[j] = triangle[i-1][j-1] + triangle[i-1][j];
+11
+12            }
+13            triangle.push_back(row);
+14        }
+15        return triangle;
+16    }
+17};
