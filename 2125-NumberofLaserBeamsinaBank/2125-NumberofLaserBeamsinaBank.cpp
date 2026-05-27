@@ -1,15 +1,7 @@
-// Last updated: 5/27/2026, 2:36:03 PM
+// Last updated: 5/27/2026, 2:41:31 PM
 1class Solution {
 2public:
-3    void reverseString(vector<char>& s) {
-4        int left = 0;
-5        int right = s.size() - 1;
-6
-7        while(left < right){
-8            swap(s[left], s[right]);
-9
-10            left++;
-11            right--;
-12        }
-13    }
-14};
+3    bool isPowerOfTwo(int n) {
+4        return n > 0 && (n & (n-1)) == 0;
+5    }
+6};
