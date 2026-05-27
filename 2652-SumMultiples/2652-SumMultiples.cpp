@@ -1,7 +1,7 @@
-// Last updated: 5/27/2026, 3:54:25 PM
+// Last updated: 5/27/2026, 3:58:40 PM
 1class Solution {
 2public:
-3    bool isSameAfterReversals(int num) {
-4        return num == 0 || num % 10 != 0;
+3    int numberOfMatches(int n) {
+4        return n-1;
 5    }
 6};
