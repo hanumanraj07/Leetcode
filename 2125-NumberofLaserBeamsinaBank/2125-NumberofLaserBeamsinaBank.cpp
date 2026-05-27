@@ -1,11 +1,16 @@
-// Last updated: 5/27/2026, 3:09:21 PM
+// Last updated: 5/27/2026, 3:14:51 PM
 1class Solution {
 2public:
-3    vector<int> getConcatenation(vector<int>& nums) {
-4        vector <int> ans = nums;
+3    string defangIPaddr(string address) {
+4        string ans = "";
 5
-6        ans.insert(ans.end() , nums.begin() , nums.end());
-7
-8        return ans;
-9    }
-10};
+6        for(char c : address){
+7            if(c == '.')
+8                ans +=  "[.]";
+9
+10                else
+11                    ans += c;
+12        }
+13        return ans;
+14    }
+15};
