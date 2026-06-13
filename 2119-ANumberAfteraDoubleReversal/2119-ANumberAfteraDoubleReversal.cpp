@@ -1,4 +1,4 @@
-// Last updated: 6/11/2026, 11:26:50 PM
+// Last updated: 6/13/2026, 9:44:06 PM
 1class Solution {
 2public:
 3    bool isSameAfterReversals(int num) {
