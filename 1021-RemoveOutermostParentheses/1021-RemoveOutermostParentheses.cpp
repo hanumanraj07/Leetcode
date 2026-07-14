@@ -1,27 +1,24 @@
-// Last updated: 6/9/2026, 3:50:29 PM
+// Last updated: 7/14/2026, 6:11:53 PM
 1class Solution {
 2public:
-3    vector<string> commonChars(vector<string>& words) {
-4        vector<string> ans;
-5
-6        for (char ch = 'a'; ch <= 'z'; ch++) {
-7            int minCount = INT_MAX;
-8
-9            for (string word : words) {
-10                int count = 0;
-11
-12                for (char c : word) {
-13                    if (c == ch) count++;
-14                }
-15
-16                minCount = min(minCount, count);
-17            }
-18
-19            while (minCount--) {
-20                ans.push_back(string(1, ch));
-21            }
-22        }
-23
-24        return ans;
-25    }
-26};
+3    string removeOuterParentheses(string s) {
+4        string ans;
+5        int count = 0;
+6
+7        for (char ch : s) {
+8            if (ch == '(') {
+9                if (count > 0) {
+10                    ans += ch;
+11                }
+12                count++;
+13            } else {
+14                count--;
+15                if (count > 0) {
+16                    ans += ch;
+17                }
+18            }
+19        }
+20
+21        return ans;
+22    }
+23};
