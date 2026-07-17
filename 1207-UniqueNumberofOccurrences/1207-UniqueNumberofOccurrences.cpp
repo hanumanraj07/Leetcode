@@ -1,22 +1,22 @@
-// Last updated: 4/13/2026, 1:35:53 PM
+// Last updated: 7/17/2026, 3:31:19 PM
 1class Solution {
 2public:
-3    bool uniqueOccurrences(vector<int>& arr) {
-4        unordered_map<int, int> freq;
+3    int findLHS(vector<int>& nums) {
+4        unordered_map<int, int> frequencyMap;
 5 
-6        for (int num : arr) {
-7            freq[num]++;
+6        for (int num : nums) {
+7            frequencyMap[num]++;
 8        }
-9 
-10        unordered_set<int> seen;
-11
-12        for (auto it : freq) {
-13            if (seen.count(it.second)) {
-14                return false;  
-15            }
-16            seen.insert(it.second);
+9
+10        int ans = 0;
+11 
+12        for (auto& [num, count] : frequencyMap) {
+13            if (frequencyMap.count(num + 1)) {
+14                int currentLength = count + frequencyMap[num + 1];
+15                ans = max(ans, currentLength);
+16            }
 17        }
 18
-19        return true;
+19        return ans;
 20    }
 21};
