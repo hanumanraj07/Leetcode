@@ -1,15 +1,16 @@
-// Last updated: 7/23/2026, 3:20:16 PM
+// Last updated: 7/23/2026, 3:44:28 PM
 1class Solution {
 2public:
-3    bool isMonotonic(vector<int>& nums) {
-4        bool flaginc = true;
-5        bool flagdec = true;
-6        for (int i = 0; i < nums.size() - 1; i++) {
-7            if (nums[i] > nums[i + 1])
-8                flaginc = false;
-9            if (nums[i] < nums[i + 1])
-10                flagdec = false;
-11        }
-12        return flaginc || flagdec;
-13    }
-14};
+3    int countPairs(vector<int>& nums, int k) {
+4        int count= 0;
+5
+6        for(int i = 0; i < nums.size(); i++){
+7            for(int j= i+1; j< nums.size(); j++){
+8                if(nums[i]==nums[j] && ((i * j)%k==0)){
+9                    count++;
+10                }
+11            }
+12        }
+13        return count;
+14    }
+15};
